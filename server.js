@@ -8,7 +8,10 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://note-taking-frontend-eta.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(json());
 
 app.get('/', (req, res) => {
